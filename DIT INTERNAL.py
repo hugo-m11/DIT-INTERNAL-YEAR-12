@@ -2,16 +2,16 @@
 
 import os
 
-# list of menu items, this is also where custom orders are stored
+"""list of menu items, this is also where custom orders are stored"""
 poke_bowl_menu_items = [["1:", "Salmon", "Rice", "Avacado", "Corn", 22],["2:", "Tuna", "Rice", "Avacado", "Radish", 22],["3:", "Tofu", "Rice", "Radish", "Cucumber", 21],["4:", "Snapper", "Rice", "Corn", "Edamame", 25],["5:", "Chicken", "Rice", "Seaweed", "Carrot", 18]]
- 
-# defines a function that prints out the full menu
+
+"""defines a function that prints out the full menu"""
 def full_poke_bowl_menu():
     for poke_bowl_menu_item in poke_bowl_menu_items:
         print("------------------------------------")
         print(poke_bowl_menu_item[0], poke_bowl_menu_item[1], poke_bowl_menu_item[2], poke_bowl_menu_item[3], poke_bowl_menu_item[4], poke_bowl_menu_item[5])
 
-# defines a function that allows users to order pre-exisitng items 
+""""defines a function that allows users to order pre-exisitng items"""
 def order_preexisting_items():
     os.system("clear")
     for poke_bowl_menu_item in poke_bowl_menu_items:
@@ -32,11 +32,10 @@ def order_preexisting_items():
                 print("4: | Snapper, Rice, Corn, Edamame, 25")
             elif user_order == 5:
                 print("5: | Chicken, Rice, Seaweed, Carrot, 18")
-            
-            
+
         except ValueError:
             print("please enter a valid choice")                       
-            
+
         while True:
             try:
                 user_menu_choice = input("\n- Would you like to order something else? (yes/no): \n\n>").lower()
@@ -46,15 +45,15 @@ def order_preexisting_items():
                    return
             except:
                 print("invalid input")
-                            
-# this define a function that allows the user to customise their order
+   
+"""this define a function that allows the user to customise their order"""
 def order_custom_item():
     poke_bowl_menu_items.append([])
     
     valid_user_protein = ["Salmon", "salmon", "Tuna", "tuna", "Snapper", "snapper", "Chicken", "chicken", "Tofu", "tofu"]
     valid_user_base = ["Rice", "rice", "Brown Rice", "brown rice"]
     valid_user_veg = ["Avacado", "Corn", "Cucumber", "Edamame", "Radish", "Carrot" "avacado", "corn", "cucumber", "edamame", "radish", "carrot"]
-    
+
     while True:
         new_order_protein = input("\nPlease enter your choice of protein (Salmon, Tuna, Snapper, Chicken, Tofu)\n>").lower()
 
@@ -94,11 +93,10 @@ def order_custom_item():
         else:
             print("\n\nInvalid ingredient choice, please try again")
             continue
-    
-    
+
     print("Thank you very much for your order!")
-       
-# defines a function that will be the menu interface
+
+"""defines a function that will be the menu interface"""
 
 def menu():
     print("Hello, welcome to Percy's Poke Bowls\n")
@@ -121,10 +119,9 @@ def menu():
             elif user_menu_choice == 3:
                 os.system("clear")
                 order_custom_item()
-                
+            
             elif user_menu_choice == 4:
                 return
-               
             
             else:
                 continue
@@ -142,10 +139,7 @@ def menu():
                         menu()
                     elif user_menu_choice == "no":
                         return
-                    
-            
         except:
             print("\nPlease enter a valid input")
-
 menu()
 exit()
